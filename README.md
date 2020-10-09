@@ -1,6 +1,8 @@
-# my-project-block
+## electron-project-block
 
-> An electron-vue project
+> 自己学习electron 的测试例子
+>
+> 一个音乐播放器
 
 #### Build Setup
 
