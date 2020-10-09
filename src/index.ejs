@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>my-project</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="http://at.alicdn.com/t/font_2102135_aa5hgzvtf4r.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/layui/2.4.3/layui.all.min.js"></script>
+    <% if (htmlWebpackPlugin.options.nodeModules) { %>
+      <!-- Add `node_modules/` to global paths so `require` works properly in development -->
+      <script>
+        require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
+      </script>
+    <% } %>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- Set `__static` path to static files in production -->
+    <% if (!process.browser) { %>
+      <script>
+        if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+      </script>
+    <% } %>
+  </body>
+  <script type="text/html" id="imageTpl">
+    <img src="{{d.pic}}" alt="" style="width: 50px;height: 50px">
+  </script>
+</html>
